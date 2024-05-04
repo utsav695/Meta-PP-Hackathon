@@ -13,6 +13,13 @@ public class Beat
 {
     public float sequenceEndTime;
     public int orbsCollected = 0;
+    public int totalOrbsSpawned = 0;
+    public AudioClip soundTrack;
+
+    public float GetAccuracy()
+    {
+        return (float)orbsCollected / Mathf.Max(1, totalOrbsSpawned);
+    }
 }
 
 public class MainManager : MonoBehaviour
@@ -22,6 +29,10 @@ public class MainManager : MonoBehaviour
     [SerializeField] private GameObject floorColliders;
     private PlayableDirector playableDirector;
     int currentBeat;
+
+    private AudioSource baseTrackSource;
+
+    [SerializeField] private AudioClip baseTrack;
 
     // Start is called before the first frame update
     void Awake()
@@ -36,6 +47,8 @@ public class MainManager : MonoBehaviour
         playableDirector.RebuildGraph();
         playableDirector.Evaluate();
         playableDirector.Play();
+
+        CreateTrack(baseTrack);
     }
 
     // Update is called once per frame
@@ -65,6 +78,7 @@ public class MainManager : MonoBehaviour
     //CALLED BY FLOOR COLLIDERS
     public void GoToNextSequence()
     {
+        CreateTrack(beats[currentBeat].soundTrack);
         currentBeat++;
         playableDirector.RebuildGraph();
         playableDirector.Evaluate();
@@ -73,9 +87,62 @@ public class MainManager : MonoBehaviour
         OrbManager.Instance.SetState(true);
     }
 
-    //CALLED BY ORB MANAGER 
+    //CALLED BY ORB 
     public void CollectOrb()
     {
         beats[currentBeat].orbsCollected++;
+    }
+
+    //CALLED BY ORB MANAGER
+    public void OrbSpawned()
+    {
+        beats[currentBeat].totalOrbsSpawned++;
+    }
+
+    public float GetCurrentAccuracy()
+    {
+        return beats[currentBeat].GetAccuracy();
+    }
+
+    public float GetTotalAccuracy()
+    {
+        float accuracy = 0f;
+
+        int beatsSoFar = Mathf.Min(currentBeat + 1, beats.Count);
+
+        for (int i = 0; i < beatsSoFar; i++)
+        {
+            accuracy += beats[i].GetAccuracy();
+        }
+
+        accuracy /= beatsSoFar;
+
+        return accuracy;
+    }
+
+    private void CreateTrack(AudioClip clip)
+    {
+        if (clip == null)
+        {
+            Debug.Log("AudioClip is null in current beat!");
+            return;
+        }
+
+        GameObject go = new()
+        {
+            name = clip.name
+        };
+        AudioSource source = go.AddComponent<AudioSource>();
+        source.loop = true;
+        source.clip = clip;
+        if (baseTrackSource)
+        {
+            source.time = Mathf.Min(clip.length, baseTrackSource.time);
+        }
+        else
+        {
+            baseTrackSource = source;
+        }
+        source.Play();
     }
 }

@@ -337,13 +337,22 @@ MonoBehaviour:
   beats:
   - sequenceEndTime: 20
     orbsCollected: 0
+    totalOrbsSpawned: 0
+    soundTrack: {fileID: 8300000, guid: 5c729eaee09ca4c1ba07e4a6398e5452, type: 3}
   - sequenceEndTime: 38
     orbsCollected: 0
+    totalOrbsSpawned: 0
+    soundTrack: {fileID: 8300000, guid: 5c729eaee09ca4c1ba07e4a6398e5452, type: 3}
   - sequenceEndTime: 53
     orbsCollected: 0
+    totalOrbsSpawned: 0
+    soundTrack: {fileID: 8300000, guid: 5c729eaee09ca4c1ba07e4a6398e5452, type: 3}
   - sequenceEndTime: 67
     orbsCollected: 0
+    totalOrbsSpawned: 0
+    soundTrack: {fileID: 8300000, guid: 5c729eaee09ca4c1ba07e4a6398e5452, type: 3}
   floorColliders: {fileID: 1973534638}
+  baseTrack: {fileID: 8300000, guid: 5c729eaee09ca4c1ba07e4a6398e5452, type: 3}
 --- !u!320 &119706152
 PlayableDirector:
   m_ObjectHideFlags: 0

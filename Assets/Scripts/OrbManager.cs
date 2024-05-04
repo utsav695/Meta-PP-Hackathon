@@ -40,6 +40,8 @@ public class OrbManager : MonoBehaviour
                 Instantiate(orbPrefabBlue, rightHand.transform.position, Quaternion.identity);
 
                 timer = 0;
+
+                MainManager.Instance.OrbSpawned();
             }
         } 
       

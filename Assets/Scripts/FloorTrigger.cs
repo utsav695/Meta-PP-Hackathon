@@ -7,7 +7,7 @@ public class FloorTrigger : MonoBehaviour
     public GameObject enviornment; 
     private void OnTriggerEnter(Collider other)
     {
-        if (CompareTag("Hand"))
+        if (other.CompareTag("Hand"))
         {
             transform.GetComponent<BoxCollider>().enabled = false;
             enviornment.gameObject.SetActive(true);

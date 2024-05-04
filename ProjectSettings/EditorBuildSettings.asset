@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/NickMainScene.unity
+    guid: 21b036c60500ea742b04232ddcddcc68
+  - enabled: 0
     path: Assets/Scenes/Handtracking.unity
     guid: c3db21a66824b447cbcb4a5a942bded7
   m_configObjects:
