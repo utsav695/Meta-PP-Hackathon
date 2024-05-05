@@ -71,6 +71,7 @@ public class MainManager : MonoBehaviour
             else if(currentBeat == 3) //END OF 3 
             {
                 //END STATE OF EXPERIENCE
+                floorColliders.gameObject.SetActive(true);
             }
         }
     }

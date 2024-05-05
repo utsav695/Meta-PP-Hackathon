@@ -7,7 +7,9 @@ using UnityEditor.Animations;
 
 public class RecordTransformHierarchy : MonoBehaviour
 {
+
 #if UNITY_EDITOR
+    /*
     private AnimationClip clip;
     //public InsulinSavedEventTimes _savedTime;
     private GameObjectRecorder m_Recorder;
@@ -64,6 +66,7 @@ public class RecordTransformHierarchy : MonoBehaviour
             Debug.Log("Save took " + (Time.time - saveStartTime) + " seconds");
         }
     }
+    */
 #endif
 }
 
