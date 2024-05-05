@@ -8,8 +8,8 @@ public class OrbManager : MonoBehaviour
 
     [SerializeField] private GameObject leftHand; //red
     [SerializeField] private GameObject rightHand; //blue
-    [SerializeField] private GameObject orbPrefabBlue;
-    [SerializeField] private GameObject orbPrefabRed;
+    [SerializeField] private GameObject orbPrefabYellow;
+    [SerializeField] private GameObject orbPrefabWhite;
 
     [SerializeField] private float OrbSpawnRate = 1;
     private float timer = 0;
@@ -36,8 +36,8 @@ public class OrbManager : MonoBehaviour
             }
             else
             {
-                Instantiate(orbPrefabRed, leftHand.transform.position, Quaternion.identity);
-                Instantiate(orbPrefabBlue, rightHand.transform.position, Quaternion.identity);
+                Instantiate(orbPrefabWhite, leftHand.transform.position, Quaternion.identity);
+                Instantiate(orbPrefabYellow, rightHand.transform.position, Quaternion.identity);
 
                 timer = 0;
 

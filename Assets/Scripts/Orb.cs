@@ -91,12 +91,15 @@ public class Orb : MonoBehaviour
             t += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+        StartCoroutine(DestroyParticle(0.0f));
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Hand"))
         {
+            transform.GetComponent<BoxCollider>().enabled= false;
+
             //ADD ORB COUNT TO MAIN MANAGER 
             MainManager.Instance.CollectOrb();
 
