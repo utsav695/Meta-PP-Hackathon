@@ -14,6 +14,7 @@ public class Beat
     public float sequenceEndTime;
     public int orbsCollected = 0;
     public int totalOrbsSpawned = 0;
+    public int target;
     public AudioClip soundTrack;
 
     public float GetAccuracy()
@@ -22,8 +23,14 @@ public class Beat
     }
 }
 
+public enum GameState { StartOrb, Playing, Action }
+
 public class MainManager : MonoBehaviour
 {
+    public GameState CurrentState { get; private set; } = GameState.StartOrb;
+    public float StartOrbProgressLeft { get; private set; }
+    public float StartOrbProgressRight { get; private set; }
+
     public static MainManager Instance { get; private set; }
     [SerializeField] private List<Beat> beats;
     [SerializeField] private GameObject floorColliders;
@@ -33,6 +40,12 @@ public class MainManager : MonoBehaviour
     private AudioSource baseTrackSource;
 
     [SerializeField] private AudioClip baseTrack;
+
+    [Space]
+
+    [SerializeField] private StartOrb startOrbLeft;
+    [SerializeField] private StartOrb startOrbRight;
+    [SerializeField] private float holdDuration = 3f;
 
     // Start is called before the first frame update
     void Awake()
@@ -46,33 +59,76 @@ public class MainManager : MonoBehaviour
         playableDirector.time = 0;
         playableDirector.RebuildGraph();
         playableDirector.Evaluate();
-        playableDirector.Play();
+    }
 
+    private void StartGame()
+    {
+        playableDirector.Play();
         CreateTrack(baseTrack);
+        OrbManager.Instance.SetState(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playableDirector.time > beats[currentBeat].sequenceEndTime && playableDirector.state == PlayState.Playing)
+        startOrbLeft.gameObject.SetActive(CurrentState == GameState.StartOrb);
+        startOrbRight.gameObject.SetActive(startOrbLeft.gameObject.activeSelf);
+
+        switch (CurrentState)
         {
-            playableDirector.Pause();
-            OrbManager.Instance.SetState(false);
+            case GameState.StartOrb:
 
-            if(currentBeat < 3) //END OF 0-2
-            {
-                //TODO: MAKE ARMS GLOW 
-                
-                //TODO: TELL USERS TO TOUCH THE GROUND 
+                StartOrbProgressLeft = Mathf.Clamp01(startOrbLeft.HoldTimer / holdDuration);
+                StartOrbProgressRight = Mathf.Clamp01(startOrbRight.HoldTimer / holdDuration);
 
-                //SET ACTIVE COLLIDER ON THE FLOOR USERS TO TOUCH THE GROUND 
-                floorColliders.gameObject.SetActive(true);
-            }
-            else if(currentBeat == 3) //END OF 3 
-            {
-                //END STATE OF EXPERIENCE
-                floorColliders.gameObject.SetActive(true);
-            }
+                if ((StartOrbProgressLeft >= 1f && StartOrbProgressRight >= 1f) || Input.GetKeyDown(KeyCode.S))
+                {
+                    CurrentState = GameState.Playing;
+                    StartGame();
+                }
+
+                break;
+            case GameState.Playing:
+
+                if (playableDirector.time > beats[currentBeat].sequenceEndTime && playableDirector.state == PlayState.Playing)
+                {
+                    if (beats[currentBeat].orbsCollected >= beats[currentBeat].target)
+                    {
+                        playableDirector.Pause();
+                        OrbManager.Instance.SetState(false);
+
+                        if (currentBeat < 3) //END OF 0-2
+                        {
+                            //TODO: MAKE ARMS GLOW 
+
+                            //TODO: TELL USERS TO TOUCH THE GROUND 
+
+                            //SET ACTIVE COLLIDER ON THE FLOOR USERS TO TOUCH THE GROUND 
+                            floorColliders.SetActive(true);
+                        }
+                        else if (currentBeat == 3) //END OF 3 
+                        {
+                            //END STATE OF EXPERIENCE
+                            floorColliders.SetActive(true);
+                        }
+
+                        CurrentState = GameState.Action;
+                    }
+                    else if (currentBeat == 0)
+                    {
+                        playableDirector.time = 0f;
+                    }
+                    else
+                    {
+                        playableDirector.time = beats[currentBeat - 1].sequenceEndTime;
+                    }
+                }
+
+                break;
+            case GameState.Action:
+                break;
+            default:
+                break;
         }
     }
 
@@ -84,8 +140,10 @@ public class MainManager : MonoBehaviour
         playableDirector.RebuildGraph();
         playableDirector.Evaluate();
         playableDirector.Play();
-        floorColliders.gameObject.SetActive(false);
+        floorColliders.SetActive(false);
         OrbManager.Instance.SetState(true);
+
+        CurrentState = GameState.Playing;
     }
 
     //CALLED BY ORB 
