@@ -91,7 +91,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _Blend: 2
+    - _Blend: 0
     - _BlendOp: 0
     - _BumpScale: 1
     - _CameraFadingEnabled: 0
@@ -110,7 +110,7 @@ Material:
     - _DistortionUSpeed: 0
     - _DistortionVSpeed: 0
     - _DoubleSided: 1
-    - _DstBlend: 1
+    - _DstBlend: 10
     - _EdgeSoftness: 0
     - _FaceSignClamp: 1
     - _FlipbookBlending: 0
