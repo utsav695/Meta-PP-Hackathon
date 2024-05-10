@@ -7,6 +7,8 @@ TagManager:
   - Anchor
   - Bullet
   - Hand
+  - LeftHand
+  - RightHand
   layers:
   - Default
   - TransparentFX

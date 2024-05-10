@@ -21,7 +21,7 @@ using static UnityEngine.Rendering.DebugUI.Table;
 
 public class Orb : MonoBehaviour
 {
-
+    public bool isRightHand = false; 
     public bool rotate = false;
     public float rotateAmount = 45;
     public bool bounce = false;
@@ -30,7 +30,7 @@ public class Orb : MonoBehaviour
     [Tooltip("From 0% to 100%")]
     public float accuracy;
     public float fireRate;
-    public GameObject muzzlePrefab;
+    private GameObject muzzlePrefab;
     public GameObject hitPrefab;
     public List<GameObject> trails;
 
@@ -96,7 +96,18 @@ public class Orb : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Hand"))
+        string compareTag;
+
+        if (isRightHand)
+        {
+            compareTag = "RightHand";
+        }
+        else
+        {
+            compareTag = "LeftHand";
+        }
+
+        if (other.CompareTag(compareTag))
         {
             transform.GetComponent<BoxCollider>().enabled= false;
 
