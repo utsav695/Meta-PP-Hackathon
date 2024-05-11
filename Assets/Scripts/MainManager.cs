@@ -163,7 +163,7 @@ public class MainManager : MonoBehaviour
                     if (currentBeat < 3)
                     {
                         StartOrbRotating = true;
-                        _ = transform.DORotate(new Vector3(0f, 90f * (currentBeat + 1), 0f), startOrbRotateDuration)
+                        _ = transform.parent.DORotate(new Vector3(0f, 90f * (currentBeat + 1), 0f), startOrbRotateDuration)
                             .OnComplete(() => { StartOrbRotating = false; });
 
                         CurrentState = GameState.StartOrb;
