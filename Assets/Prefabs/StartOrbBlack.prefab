@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1316978020979084002}
-  - component: {fileID: 1342741817499453828}
-  - component: {fileID: 1335686956021109326}
   - component: {fileID: 7012336129423961144}
   m_Layer: 0
   m_Name: StartOrbBlack
@@ -28,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1318371307972271474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.10000001, y: 0.10000001, z: 0.10000001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5398051284427188755}
@@ -36,35 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1342741817499453828
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1318371307972271474}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1335686956021109326
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1318371307972271474}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &7012336129423961144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19876e2cb486db64fbd022678510c150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  min: 3
-  max: 10
+  min: 7
+  max: 15
 --- !u!1 &1319232077799271460
 GameObject:
   m_ObjectHideFlags: 0
@@ -5045,7 +5014,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 7
       minScalar: 3
       maxCurve:
         serializedVersion: 2

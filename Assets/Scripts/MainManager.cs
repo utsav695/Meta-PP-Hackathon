@@ -77,9 +77,13 @@ public class MainManager : MonoBehaviour
         switch (CurrentState)
         {
             case GameState.StartOrb:
-
-                StartOrbProgressLeft = Mathf.Clamp01(startOrbLeft.HoldTimer / holdDuration);
-                StartOrbProgressRight = Mathf.Clamp01(startOrbRight.HoldTimer / holdDuration);
+                float leftValue = Mathf.Clamp01(startOrbLeft.HoldTimer / holdDuration);
+                StartOrbProgressLeft = leftValue;
+                startOrbLeft.transform.GetChild(0).GetComponent<StartOrbScaleUp>().SetEmissionValue(leftValue);
+                
+                float rightValue = Mathf.Clamp01(startOrbRight.HoldTimer / holdDuration);
+                StartOrbProgressRight = rightValue;
+                startOrbLeft.transform.GetChild(0).GetComponent<StartOrbScaleUp>().SetEmissionValue(rightValue);
 
                 if ((StartOrbProgressLeft >= 1f && StartOrbProgressRight >= 1f) || Input.GetKeyDown(KeyCode.S))
                 {

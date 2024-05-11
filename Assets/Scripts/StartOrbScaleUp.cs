@@ -8,10 +8,11 @@ public class StartOrbScaleUp : MonoBehaviour
     public float min = 3;
     public float max = 10;
 
-    public void setEmissionValue(float t)
+    public void SetEmissionValue(float t)
     {
         startSize = Mathf.Lerp(min, max, t);
-        ParticleSystem.MainModule ps = transform.GetChild(0).GetComponent<ParticleSystem.MainModule>();
-        ps.startSize = startSize;
+        ParticleSystem ps = transform.GetChild(0).GetComponent<ParticleSystem>();
+        ParticleSystem.MainModule pm = ps.main;
+        pm.startSize = startSize;
     }
 }

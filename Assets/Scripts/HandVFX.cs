@@ -11,8 +11,8 @@ public class HandVFX : MonoBehaviour
     public void setEmissionValue(float t)
     {
         emissionValue = Mathf.Lerp(min, max, t);
-        //ParticleSystem ps = transform.GetChild(0).GetComponent<ParticleSystem>();
-        ParticleSystem.EmissionModule em = transform.GetChild(0).GetComponent<ParticleSystem.EmissionModule>(); 
+        ParticleSystem ps = transform.GetChild(0).GetComponent<ParticleSystem>();
+        ParticleSystem.EmissionModule em = ps.emission; 
         em.rateOverTime= emissionValue;
     }
 }

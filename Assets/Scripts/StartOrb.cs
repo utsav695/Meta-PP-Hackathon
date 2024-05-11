@@ -13,6 +13,7 @@ public class StartOrb : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        transform.GetComponent<AudioSource>().Play();
         OVRSkeleton skeleton = other.GetComponent<OVRSkeleton>();
         if (skeleton && ((skeleton.GetSkeletonType() == OVRSkeleton.SkeletonType.HandLeft && side == Side.Left) ||
                 (skeleton.GetSkeletonType() == OVRSkeleton.SkeletonType.HandRight && side == Side.Right)))
