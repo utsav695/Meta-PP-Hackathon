@@ -9496,6 +9496,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrbWhite
       objectReference: {fileID: 0}
+    - target: {fileID: 2008807464523021238, guid: 929960a1c0bc96749b50ff538b065e53, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2012445540607437862, guid: 929960a1c0bc96749b50ff538b065e53, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -19201,6 +19205,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrbBlack
       objectReference: {fileID: 0}
+    - target: {fileID: 2008807464523021238, guid: 4ca2618eb6a19f14fbfe2de4067b2893, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010081671788251206, guid: 4ca2618eb6a19f14fbfe2de4067b2893, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010127050834222864, guid: 4ca2618eb6a19f14fbfe2de4067b2893, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010195959137143520, guid: 4ca2618eb6a19f14fbfe2de4067b2893, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2012445540607437862, guid: 4ca2618eb6a19f14fbfe2de4067b2893, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -19243,6 +19263,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2012445540607437862, guid: 4ca2618eb6a19f14fbfe2de4067b2893, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417898764949151383, guid: 4ca2618eb6a19f14fbfe2de4067b2893, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -19337,6 +19361,10 @@ PrefabInstance:
     - target: {fileID: 1414875422753712, guid: 63a42aca0c49ecf45b91bf3e9bd48f1b, type: 3}
       propertyPath: m_Name
       value: vfx_Hit_Orb04_White
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414875422753712, guid: 63a42aca0c49ecf45b91bf3e9bd48f1b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4974414494336408, guid: 63a42aca0c49ecf45b91bf3e9bd48f1b, type: 3}
       propertyPath: m_RootOrder
@@ -29446,7 +29474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1318371307972271474, guid: 01c7ea8e4346fd94d8466277d7fb61dd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01c7ea8e4346fd94d8466277d7fb61dd, type: 3}
@@ -29507,10 +29535,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2519850713634194527, guid: 0702fa2555e261d438abb3cfdba64555, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0702fa2555e261d438abb3cfdba64555, type: 3}
+--- !u!1001 &4073301592118627675
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4073301591688344329, guid: b6fc7d193c5f4354d8204ef2e0aaf8e5, type: 3}
+      propertyPath: m_Name
+      value: ParticleBurst
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073301591688344335, guid: b6fc7d193c5f4354d8204ef2e0aaf8e5, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073301591688344335, guid: b6fc7d193c5f4354d8204ef2e0aaf8e5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.24564214
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073301591688344335, guid: b6fc7d193c5f4354d8204ef2e0aaf8e5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0013242811
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073301591688344335, guid: b6fc7d193c5f4354d8204ef2e0aaf8e5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.024892662
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073301591688344335, guid: b6fc7d193c5f4354d8204ef2e0aaf8e5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073301591688344335, guid: b6fc7d193c5f4354d8204ef2e0aaf8e5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073301591688344335, guid: b6fc7d193c5f4354d8204ef2e0aaf8e5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073301591688344335, guid: b6fc7d193c5f4354d8204ef2e0aaf8e5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073301591688344335, guid: b6fc7d193c5f4354d8204ef2e0aaf8e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073301591688344335, guid: b6fc7d193c5f4354d8204ef2e0aaf8e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073301591688344335, guid: b6fc7d193c5f4354d8204ef2e0aaf8e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6fc7d193c5f4354d8204ef2e0aaf8e5, type: 3}
 --- !u!1001 &9217821803562689611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29518,9 +29603,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1165776516284052, guid: 6b187184b53455145863d799ab8a6b8e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315838540254452, guid: 6b187184b53455145863d799ab8a6b8e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431126170612894, guid: 6b187184b53455145863d799ab8a6b8e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1485101167384684, guid: 6b187184b53455145863d799ab8a6b8e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569539149556326, guid: 6b187184b53455145863d799ab8a6b8e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1609623467419038, guid: 6b187184b53455145863d799ab8a6b8e, type: 3}
       propertyPath: m_Name
       value: vfx_Hit_Orb04_Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609623467419038, guid: 6b187184b53455145863d799ab8a6b8e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4114720838284902, guid: 6b187184b53455145863d799ab8a6b8e, type: 3}
       propertyPath: m_RootOrder

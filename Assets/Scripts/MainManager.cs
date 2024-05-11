@@ -156,6 +156,22 @@ public class MainManager : MonoBehaviour
         beats[currentBeat].orbsCollected++;
     }
 
+    public float GetHandVFXValue()
+    {
+        float sequenceDuration;
+        if (currentBeat > 0)
+        {
+            sequenceDuration = beats[currentBeat].sequenceEndTime - beats[currentBeat - 1].sequenceEndTime;
+        }
+        else
+        {
+            sequenceDuration = beats[currentBeat].sequenceEndTime;
+        }
+        int totalOrbs = (int)(sequenceDuration / OrbManager.Instance.OrbSpawnRate);
+
+        return (float)beats[currentBeat].orbsCollected/ (float)totalOrbs;
+    }
+
     //CALLED BY ORB MANAGER
     public void OrbSpawned()
     {

@@ -48,7 +48,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 3564859199524315646}
-    m_Duration: 74.91666666666667
+    m_Duration: 28.850000381469727
     m_TimeScale: 1
     m_ParentTrack: {fileID: -3134891172273252818}
     m_EaseInDuration: 0
@@ -78,10 +78,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: ManualAnimation01
   - m_Version: 1
-    m_Start: 74.91666666666667
+    m_Start: 28.850000381469727
     m_ClipIn: 0
     m_Asset: {fileID: -1673086526375528931}
-    m_Duration: 55.08333333333334
+    m_Duration: 33.516666666666666
     m_TimeScale: 1
     m_ParentTrack: {fileID: -3134891172273252818}
     m_EaseInDuration: 0
@@ -147,10 +147,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: ManualAnimationMovement02
   - m_Version: 1
-    m_Start: 130
+    m_Start: 62.36666704813639
     m_ClipIn: 0
     m_Asset: {fileID: 3983702870163297170}
-    m_Duration: 43
+    m_Duration: 30.28333282470703
     m_TimeScale: 1
     m_ParentTrack: {fileID: -3134891172273252818}
     m_EaseInDuration: 0
@@ -216,10 +216,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: ManualAnimationMovement03
   - m_Version: 1
-    m_Start: 173
+    m_Start: 92.64999987284342
     m_ClipIn: 0
     m_Asset: {fileID: -2396620256943226706}
-    m_Duration: 89.06666666666666
+    m_Duration: 34.383333333333326
     m_TimeScale: 1
     m_ParentTrack: {fileID: -3134891172273252818}
     m_EaseInDuration: 0
@@ -505,7 +505,7 @@ MonoBehaviour:
     m_Start: 1
     m_ClipIn: 0
     m_Asset: {fileID: -2658694148920310610}
-    m_Duration: 73.91666666666667
+    m_Duration: 27.850000381469727
     m_TimeScale: 1
     m_ParentTrack: {fileID: 8521236692826696563}
     m_EaseInDuration: 0
@@ -531,14 +531,14 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 0.9999999999999716
+    m_PostExtrapolationTime: 0.9999999999999751
     m_PreExtrapolationTime: 1
     m_DisplayName: ManualAnimation01
   - m_Version: 1
-    m_Start: 75.91666666666664
+    m_Start: 29.8500003814697
     m_ClipIn: 0
     m_Asset: {fileID: 9038090883216566793}
-    m_Duration: 54.08333333333336
+    m_Duration: 32.516666666666694
     m_TimeScale: 1
     m_ParentTrack: {fileID: 8521236692826696563}
     m_EaseInDuration: 0
@@ -568,10 +568,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: ManualAnimationMovement02
   - m_Version: 1
-    m_Start: 131.0000000000004
+    m_Start: 63.36666704813679
     m_ClipIn: 0
     m_Asset: {fileID: 6261639644532267743}
-    m_Duration: 41.9999999999996
+    m_Duration: 29.283332824706633
     m_TimeScale: 1
     m_ParentTrack: {fileID: 8521236692826696563}
     m_EaseInDuration: 0
@@ -619,10 +619,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: ManualAnimationMovement03
   - m_Version: 1
-    m_Start: 174.0000000000004
+    m_Start: 93.64999987284382
     m_ClipIn: 0
     m_Asset: {fileID: -2066467056613720237}
-    m_Duration: 88.06666666666626
+    m_Duration: 33.38333333333293
     m_TimeScale: 1
     m_ParentTrack: {fileID: 8521236692826696563}
     m_EaseInDuration: 0

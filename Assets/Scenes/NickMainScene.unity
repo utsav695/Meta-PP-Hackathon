@@ -241,26 +241,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beats:
-  - sequenceEndTime: 74.9167
+  - sequenceEndTime: 28.85
     orbsCollected: 0
     totalOrbsSpawned: 0
     target: 10
-    soundTrack: {fileID: 8300000, guid: 306a3fde6d2d9214fb8948e60d0a9b75, type: 3}
-  - sequenceEndTime: 130
+    soundTrack: {fileID: 8300000, guid: cac1fb1e0b8c9e446bb35b0e9758dec8, type: 3}
+  - sequenceEndTime: 62.36
     orbsCollected: 0
     totalOrbsSpawned: 0
     target: 10
-    soundTrack: {fileID: 8300000, guid: d7a7ed9d47075c14b8236b45224fc245, type: 3}
-  - sequenceEndTime: 173
+    soundTrack: {fileID: 8300000, guid: 75dafd2eff5da9649951bfa9158c836f, type: 3}
+  - sequenceEndTime: 92.65
     orbsCollected: 0
     totalOrbsSpawned: 0
     target: 10
-    soundTrack: {fileID: 8300000, guid: dd1ba79c8e4ca3f46990c8bb771f0fba, type: 3}
-  - sequenceEndTime: 262
+    soundTrack: {fileID: 8300000, guid: 55175a82eff484c4ea6fba1137c9390d, type: 3}
+  - sequenceEndTime: 127
     orbsCollected: 0
     totalOrbsSpawned: 0
     target: 10
-    soundTrack: {fileID: 8300000, guid: b292f90c23d312b4d87c179381332bcd, type: 3}
+    soundTrack: {fileID: 8300000, guid: ad06d49ceb74f134e89ad39d5cbda2e7, type: 3}
   floorColliders: {fileID: 1973534638}
   baseTrack: {fileID: 8300000, guid: 1b01d37f85972794c89816771cdfe704, type: 3}
   startOrbLeft: {fileID: 1560803748}
@@ -303,7 +303,7 @@ MonoBehaviour:
   rightHand: {fileID: 1420600421}
   orbPrefabYellow: {fileID: 2008807464523021238, guid: 4ca2618eb6a19f14fbfe2de4067b2893, type: 3}
   orbPrefabWhite: {fileID: 2008807464523021238, guid: 929960a1c0bc96749b50ff538b065e53, type: 3}
-  OrbSpawnRate: 1
+  OrbSpawnRate: 1.5
   EmitOrbs: 0
 --- !u!1 &262332888
 GameObject:
@@ -682,7 +682,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461693224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 0.1}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1809,6 +1809,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartOrbBlack
       objectReference: {fileID: 0}
+    - target: {fileID: 7012336129423961144, guid: 01c7ea8e4346fd94d8466277d7fb61dd, type: 3}
+      propertyPath: max
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01c7ea8e4346fd94d8466277d7fb61dd, type: 3}
 --- !u!4 &820110899 stripped
@@ -2563,7 +2567,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365451148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 0.1}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3018,7 +3022,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461346403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.146}
+  m_LocalPosition: {x: 0.2, y: 1.2, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3343,7 +3347,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560803746}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.2, y: 1.2, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4087,6 +4091,10 @@ PrefabInstance:
     - target: {fileID: 2519850713634194527, guid: 0702fa2555e261d438abb3cfdba64555, type: 3}
       propertyPath: m_Name
       value: StartOrbWhite
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648618200269463194, guid: 0702fa2555e261d438abb3cfdba64555, type: 3}
+      propertyPath: max
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0702fa2555e261d438abb3cfdba64555, type: 3}
