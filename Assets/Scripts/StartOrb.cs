@@ -9,15 +9,36 @@ public class StartOrb : MonoBehaviour
     [SerializeField] private Side side;
     [SerializeField] private Transform followHand;
 
+    private AudioSource audioSource;
     private bool stay;
+
+    private void OnEnable()
+    {
+        if (!audioSource)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
+        if (audioSource)
+        {
+            audioSource.Stop();
+            audioSource.time = 0f;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        transform.GetComponent<AudioSource>().Play();
         OVRSkeleton skeleton = other.GetComponent<OVRSkeleton>();
         if (skeleton && ((skeleton.GetSkeletonType() == OVRSkeleton.SkeletonType.HandLeft && side == Side.Left) ||
                 (skeleton.GetSkeletonType() == OVRSkeleton.SkeletonType.HandRight && side == Side.Right)))
         {
+
+            if (audioSource)
+            {
+                audioSource.time = 0f;
+                audioSource.Play();
+            }
+
             stay = true;
         }
     }
@@ -28,15 +49,24 @@ public class StartOrb : MonoBehaviour
         if (skeleton && ((skeleton.GetSkeletonType() == OVRSkeleton.SkeletonType.HandLeft && side == Side.Left) ||
                 (skeleton.GetSkeletonType() == OVRSkeleton.SkeletonType.HandRight && side == Side.Right)))
         {
+            if (audioSource)
+            {
+                audioSource.time = 0f;
+                audioSource.Stop();
+            }
+
             stay = false;
         }
     }
 
     private void Update()
     {
-        transform.position = followHand.position;
+        if (followHand)
+        {
+            transform.position = followHand.position;
+        }
 
-        if (stay)
+        if (stay && !MainManager.Instance.StartOrbRotating)
         {
             HoldTimer += Time.deltaTime;
         }
@@ -44,5 +74,11 @@ public class StartOrb : MonoBehaviour
         {
             HoldTimer = 0f;
         }
+    }
+
+    private void OnDisable()
+    {
+        HoldTimer = 0f;
+        stay = false;
     }
 }

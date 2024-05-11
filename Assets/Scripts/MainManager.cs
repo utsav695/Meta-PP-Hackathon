@@ -1,7 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using DG.Tweening;
 
 //BEAT 0 - SIDE A
 //BEAT 1 - SIDE B 
@@ -23,13 +23,14 @@ public class Beat
     }
 }
 
-public enum GameState { StartOrb, Playing, Action }
+public enum GameState { StartOrb, Playing, Action, Over }
 
 public class MainManager : MonoBehaviour
 {
     public GameState CurrentState { get; private set; } = GameState.StartOrb;
     public float StartOrbProgressLeft { get; private set; }
     public float StartOrbProgressRight { get; private set; }
+    public bool StartOrbRotating { get; private set; }
 
     public static MainManager Instance { get; private set; }
     [SerializeField] private List<Beat> beats;
@@ -45,13 +46,25 @@ public class MainManager : MonoBehaviour
 
     [SerializeField] private StartOrb startOrbLeft;
     [SerializeField] private StartOrb startOrbRight;
-    [SerializeField] private float holdDuration = 3f;
+    [SerializeField] private float startOrbHoldDuration = 3f;
+    [SerializeField] private float startOrbRotateDuration = 3f;
+
+    [Space]
+
+    [SerializeField] private GameObject palms;
+    [SerializeField] private StartOrb palmLeft;
+    [SerializeField] private StartOrb palmRight;
+    [SerializeField] private float palmHoldDuration = 0.5f;
+
+    [Space]
+
+    [SerializeField] private GameObject[] toggleEnvironments;
 
     // Start is called before the first frame update
     void Awake()
     {
         Instance = this;
-        playableDirector = this.GetComponent<PlayableDirector>();  
+        playableDirector = GetComponent<PlayableDirector>();
     }
 
     private void Start()
@@ -74,21 +87,31 @@ public class MainManager : MonoBehaviour
         startOrbLeft.gameObject.SetActive(CurrentState == GameState.StartOrb);
         startOrbRight.gameObject.SetActive(startOrbLeft.gameObject.activeSelf);
 
+        palms.SetActive(CurrentState == GameState.Action);
+
         switch (CurrentState)
         {
             case GameState.StartOrb:
-                float leftValue = Mathf.Clamp01(startOrbLeft.HoldTimer / holdDuration);
+
+                float leftValue = Mathf.Clamp01(startOrbLeft.HoldTimer / startOrbHoldDuration);
                 StartOrbProgressLeft = leftValue;
                 startOrbLeft.transform.GetChild(0).GetComponent<StartOrbScaleUp>().SetEmissionValue(leftValue);
-                
-                float rightValue = Mathf.Clamp01(startOrbRight.HoldTimer / holdDuration);
+
+                float rightValue = Mathf.Clamp01(startOrbRight.HoldTimer / startOrbHoldDuration);
                 StartOrbProgressRight = rightValue;
                 startOrbLeft.transform.GetChild(0).GetComponent<StartOrbScaleUp>().SetEmissionValue(rightValue);
 
                 if ((StartOrbProgressLeft >= 1f && StartOrbProgressRight >= 1f) || Input.GetKeyDown(KeyCode.S))
                 {
-                    CurrentState = GameState.Playing;
-                    StartGame();
+                    if (toggleEnvironments[currentBeat].activeSelf)
+                    {
+                        GoToNextSequence();
+                    }
+                    else
+                    {
+                        CurrentState = GameState.Playing;
+                        StartGame();
+                    }
                 }
 
                 break;
@@ -108,12 +131,12 @@ public class MainManager : MonoBehaviour
                             //TODO: TELL USERS TO TOUCH THE GROUND 
 
                             //SET ACTIVE COLLIDER ON THE FLOOR USERS TO TOUCH THE GROUND 
-                            floorColliders.SetActive(true);
+                            //floorColliders.SetActive(true);
                         }
                         else if (currentBeat == 3) //END OF 3 
                         {
                             //END STATE OF EXPERIENCE
-                            floorColliders.SetActive(true);
+                            //floorColliders.SetActive(true);
                         }
 
                         CurrentState = GameState.Action;
@@ -130,6 +153,29 @@ public class MainManager : MonoBehaviour
 
                 break;
             case GameState.Action:
+
+                palms.transform.SetPositionAndRotation(new Vector3(0f, 1.4f, 0f), Quaternion.Euler(0f, 90f * currentBeat, 0f));
+
+                if (palmLeft.HoldTimer > palmHoldDuration && palmRight.HoldTimer > palmHoldDuration)
+                {
+                    toggleEnvironments[currentBeat].SetActive(true);
+
+                    if (currentBeat < 3)
+                    {
+                        StartOrbRotating = true;
+                        _ = transform.DORotate(new Vector3(0f, 90f * (currentBeat + 1), 0f), startOrbRotateDuration)
+                            .OnComplete(() => { StartOrbRotating = false; });
+
+                        CurrentState = GameState.StartOrb;
+                    }
+                    else
+                    {
+                        CurrentState = GameState.Over;
+                    }
+                }
+
+                break;
+            case GameState.Over:
                 break;
             default:
                 break;
@@ -144,7 +190,7 @@ public class MainManager : MonoBehaviour
         playableDirector.RebuildGraph();
         playableDirector.Evaluate();
         playableDirector.Play();
-        floorColliders.SetActive(false);
+        //floorColliders.SetActive(false);
         OrbManager.Instance.SetState(true);
 
         CurrentState = GameState.Playing;
